@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="row-cols-md-6">
+        <p>Alumno seleccionado: </p>
+        <input type="text" name="alumno"[(ngModel)]="alumnoNombre" >
+    </div>
+
+</div>
+
+<div class="table-responsive">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Escuela</th>
+                <th scope="col">Idioma</th>
+                <th scope="col">Califcacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="cursor:pointer;" *ngFor="let alumno of listaAlumnos" [ngClass]="alumno.promedio <= 7 ? 'table-danger' : 'table-success' "  (click)="datosAlumno(alumno.first_name)">
+                <th scope="row">{{ alumno.id }}</th>
+                <td>{{ alumno.first_name }}</td>
+                <td>{{ alumno.last_name }}</td>
+                <td>{{ alumno.escuela }}</td>
+                <td>{{ alumno.materia }}</td>
+                <td  >{{ alumno.promedio | number:'1.1' }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+</div>
+
+
